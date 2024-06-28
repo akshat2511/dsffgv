@@ -1,0 +1,44 @@
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// } Driver Code Ends
+// User function Template for C++
+class Solution {
+  public:
+    int minMoves(int n, vector<int> &arr) {
+        // code here
+        vector<int> akshat;
+        map <int,int> mm;
+        for(auto x:arr){
+            mm[x]++;
+            akshat.push_back(mm[x]);
+        }int cnt=1;
+        for(int i=0;i<akshat.size()-1;i++){
+            if(akshat[i]<akshat[i+1])cnt++;
+        }
+        if(n>5)
+        return cnt-1;return cnt;
+        
+    }
+};
+
+
+//{ Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for (int i = 0; i < n; i++) {
+            cin >> arr[i];
+        }
+        Solution s;
+        cout << s.minMoves(n, arr) << endl;
+    }
+}
+// } Driver Code Ends
